@@ -101,7 +101,6 @@
     <Compile Include="Models\customer.cs" />
     <Compile Include="Models\customershiper.cs" />
     <Compile Include="Models\product.cs" />
-    <Compile Include="Models\promotions.cs" />
     <Compile Include="Models\saleorder.cs" />
     <Compile Include="Models\saleorderdetail.cs" />
     <Compile Include="Models\unit.cs" />
