@@ -7,6 +7,5 @@ namespace SaleorderWebApi.Models
 {
     public class user
     {
-
     }
 }

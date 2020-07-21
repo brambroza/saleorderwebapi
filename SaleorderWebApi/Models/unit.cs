@@ -7,13 +7,5 @@ namespace SaleorderWebApi.Models
 {
     public class unit
     {
-        public string CSUNITCODE { get; set; }
-
-        public string CSUNITNAME { get; set; }
-
-        public int FNMSysUnitId { get; set; }
-
-        public int qty { get; set; }
-
     }
 }
