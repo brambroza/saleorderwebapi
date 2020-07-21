@@ -87,11 +87,17 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AuthorizedController.cs" />
+    <Compile Include="Controllers\CheckOnhandController.cs" />
     <Compile Include="Controllers\CustermerShiperController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\ProductlistController.cs" />
+    <Compile Include="Controllers\PromotionCustController.cs" />
+    <Compile Include="Controllers\PromotionDetailController.cs" />
+    <Compile Include="Controllers\PromotionsController.cs" />
+    <Compile Include="Controllers\SaleorderappController.cs" />
     <Compile Include="Controllers\SaleOrderController.cs" />
     <Compile Include="Controllers\SaleOrderDetailController.cs" />
+    <Compile Include="Controllers\SaleorderlistController.cs" />
     <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="DB\DBConn.cs" />
     <Compile Include="DB\DBConntext.cs" />
@@ -101,7 +107,9 @@
     <Compile Include="Models\customer.cs" />
     <Compile Include="Models\customershiper.cs" />
     <Compile Include="Models\product.cs" />
+    <Compile Include="Models\promotiondetail.cs" />
     <Compile Include="Models\promotions.cs" />
+    <Compile Include="Models\promotionscust.cs" />
     <Compile Include="Models\saleorder.cs" />
     <Compile Include="Models\saleorderdetail.cs" />
     <Compile Include="Models\unit.cs" />

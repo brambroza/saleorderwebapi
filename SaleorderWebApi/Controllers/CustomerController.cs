@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -16,10 +17,15 @@ namespace SaleorderWebApi.Controllers
         }
 
         // GET: api/Customer/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            DataTable dt = new System.Data.DataTable();
+            string _cmd;
+            _cmd = "exec dbo.customerlist @CmpId=" + id + "";
+            dt = DB.DBConn.GetDataTable(_cmd);
+            return Ok(dt);
         }
+
 
         // POST: api/Customer
         public void Post([FromBody]string value)

@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace NohWebApi.DB
+namespace SaleorderWebApi.DB
 {
     public static class DBConn
     {

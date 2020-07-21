@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaleorderWebApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,8 +23,41 @@ namespace SaleorderWebApi.Controllers
         }
 
         // POST: api/SaleOrder
-        public void Post([FromBody]string value)
+        public void Post(saleorder so)
         {
+            try
+            {
+                string _cmd;
+                _cmd = "exec  dbo.TPreSaleOrderTrans";
+                _cmd += "@CSUserIns  ='" + so.CSUserIns + "'";
+                _cmd += ",@CSSaleOrderNo  ='" + so.CSSaleOrderNo + "'";
+                _cmd += ",@CDSaleOrderDate =" + so.CDSaleOrderDate;
+                _cmd += ",@CSCustomerCode  ='" + so.CSCustomerCode + "'";
+                _cmd += ",@CSFactoryCode  ='" + so.CSFactoryCode + "'";
+                _cmd += ",@CSCustomerType  ='" + so.CSCustomerType + "'";
+                _cmd += ",@CSCustomDocNo  ='" + so.CSCustomDocNo + "'";
+                _cmd += ",@CSPayType  ='" + so.CSPayType + "'";
+                _cmd += ",@CDDeliveryDate =" + so.CDDeliveryDate;
+                _cmd += ",@CSDeliveryTime =" + so.CSDeliveryTime;
+                _cmd += ",@CNSaleOrderAmt =" + so.CNSaleOrderAmt;
+                _cmd += ",@CNSaleOrderDiscountAmt1 =" + so.CNSaleOrderDiscountAmt1;
+                _cmd += ",@CNSaleOrderDiscountAmt2 =" + so.CNSaleOrderDiscountAmt2;
+                _cmd += ",@CNSaleOrderDiscountAmt3 =" + so.CNSaleOrderDiscountAmt3;
+                _cmd += ",@CNSaleOrderNetAmt =" + so.CNSaleOrderNetAmt;
+                _cmd += ",@CNSaleOrderVatPer =" + so.CNSaleOrderVatPer;
+                _cmd += ",@CNSaleOrderVatAmt =" + so.CNSaleOrderVatAmt;
+                _cmd += ",@CNSaleOrderGrandTotalAmt =" + so.CNSaleOrderGrandTotalAmt;
+                _cmd += ",@CSRemark  ='" + so.CSRemark + "'";
+                _cmd += ",@CNSaleOrderType =" + so.CNSaleOrderType;
+                _cmd += ",@CSDeliveryAddress  ='" + so.CSDeliveryAddress + "'";
+                _cmd += ",@FTStateNotConvert =" + so.FTStateNotConvert;
+                DB.DBConn.ExecuteOnly(_cmd);
+
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         // PUT: api/SaleOrder/5
@@ -32,8 +66,18 @@ namespace SaleorderWebApi.Controllers
         }
 
         // DELETE: api/SaleOrder/5
-        public void Delete(int id)
+        public void Delete(string SaleOrderNo)
         {
+            try
+            {
+                string _cmd;
+                _cmd = "Exec  dbo.TPreSaleOrderDelete   @SaleOrderNo='" + SaleOrderNo +"'" ;
+                DB.DBConn.ExecuteOnly(_cmd);
+            }
+            catch
+            {
+
+            }
         }
     }
 }

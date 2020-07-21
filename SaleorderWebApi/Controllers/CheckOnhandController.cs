@@ -8,34 +8,35 @@ using System.Web.Http;
 
 namespace SaleorderWebApi.Controllers
 {
-    public class ProductlistController : ApiController
+    public class CheckOnhandController : ApiController
     {
-        // GET: api/Productlist
+        // GET: api/CheckOnhand
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Productlist/5
-        public IHttpActionResult Get(int CmpId )
+        // GET: api/CheckOnhand/5
+        public IHttpActionResult Get(string ProductCode , string UnitCode , int Qty)
         {
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.productlist   @CmpId=" + CmpId;
+            _cmd = "exec dbo.checkonhand   @ProductCode='" + ProductCode + "', @UnitCode='" + UnitCode + "' , @Qty=" + Qty ;
             dt = DB.DBConn.GetDataTable(_cmd);
             return Ok(dt);
         }
-        // POST: api/Productlist
+
+        // POST: api/CheckOnhand
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Productlist/5
+        // PUT: api/CheckOnhand/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Productlist/5
+        // DELETE: api/CheckOnhand/5
         public void Delete(int id)
         {
         }
