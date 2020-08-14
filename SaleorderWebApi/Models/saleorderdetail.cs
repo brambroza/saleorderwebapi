@@ -8,8 +8,7 @@ namespace SaleorderWebApi.Models
     public class saleorderdetail
     {
          
-            public string CSUserIns { get; set; }
-         
+            public string CSUserIns { get; set; }         
 
             public string CSSaleOrderNo { get; set; }
 
