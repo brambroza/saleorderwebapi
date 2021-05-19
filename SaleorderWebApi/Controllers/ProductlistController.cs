@@ -5,9 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using System.Web.Http.Cors;
 namespace SaleorderWebApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductlistController : ApiController
     {
         // GET: api/Productlist
@@ -17,11 +18,11 @@ namespace SaleorderWebApi.Controllers
         }
 
         // GET: api/Productlist/5
-        public IHttpActionResult Get(int CmpId )
+        public IHttpActionResult Get(int CmpId  , string DocNo)
         {
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.productlist   @CmpId=" + CmpId;
+            _cmd = "exec dbo.productlist   @CmpId=" + CmpId + ", @DocNo ='" + DocNo + "'";
             dt = DB.DBConn.GetDataTable(_cmd);
             return Ok(dt);
         }

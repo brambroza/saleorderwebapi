@@ -18,11 +18,11 @@ namespace SaleorderWebApi.Controllers
         }
 
         // GET: api/Customer/5
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int id ,string user)
         {
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.customerlist @CmpId=" + id + "";
+            _cmd = "exec dbo.customerlist @CmpId=" + id + ", @user ='" + user + "'";
             dt = DB.DBConn.GetDataTable(_cmd);
             return Ok(dt);
         }

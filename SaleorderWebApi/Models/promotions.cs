@@ -6,21 +6,23 @@ using System.Web;
 namespace SaleorderWebApi.Models
 {
     public class promotions
-    {  
-            public string CSUserUpd { get; set; }
-             
+    {
+        public string FTInsUser { get; set; } 
 
-            public int PromotionId { get; set; }
+        public string FNPriceVerId { get; set; }
 
-            public string PromotionName { get; set; }
+        public string FTPriceVerName { get; set; }
 
-            public string CSProductCode { get; set; }
+        public string FDStartDate { get; set; }
 
-            public string StartDate { get; set; }
+        public string FDEndDate { get; set; }
 
-            public string EndDate { get; set; }
+        public int FNMSysRawMatId { get; set; }
 
-            public int StatusActive { get; set; }
+        public int CNGrpCustomerId { get; set; }
 
-        }
+        public int CNCustomerId { get; set; }
+
+        public string FTStateActive { get; set; }
+    }
     }
