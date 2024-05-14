@@ -53,34 +53,37 @@ namespace SaleorderWebApi.Controllers
 
                 for (int i = 0; i < saleorderdetail.Count; i++)
                 {
-
-
-
-                    _cmd = "exec  dbo.TPreSaleOrder_Detail_Trans";
-                    _cmd += " @CSUserIns  ='" + saleorderdetail[i].CSUserIns + "'";
-                    _cmd += ",@CSSaleOrderNo  ='" + saleorderdetail[i].CSSaleOrderNo + "'";
-                    _cmd += ",@CSProductCode  ='" + saleorderdetail[i].CSProductCode + "'";
-                    _cmd += ",@CSUnitCode  ='" + saleorderdetail[i].CSUnitCode + "'";
-                    _cmd += ",@CNQty =" + saleorderdetail[i].CNQty;
-                    _cmd += ",@CNUnitPrice =" + saleorderdetail[i].CNUnitPrice;
-                    _cmd += ",@CNDiscountPer1 ="  +saleorderdetail[i].CNDiscountPer1;
-                    _cmd += ",@CNDiscountPer2 =" +  saleorderdetail[i].CNDiscountPer2;
-                    _cmd += ",@CNDiscountPer3 =" + saleorderdetail[i].CNDiscountPer3; ;
-                    _cmd += ",@CNDiscountAmt =" +  saleorderdetail[i].CNDiscountAmt;
-                    _cmd += ",@CNAmount =" + saleorderdetail[i].CNAmount;
-                    _cmd += ",@Seq =" + +saleorderdetail[i].Seq;
-                    _cmd += ",@FTStateFree ='" +  saleorderdetail[i].FTStateFree  + "'";
-                    _cmd += ",@FTStateOther =" + 0;
-                    //   DB.DBConn.ExecuteOnly(_cmd);
-
-
-
-                    if (DB.DBConn.ExecuteTran(_cmd, DB.DBConn.Cmd, DB.DBConn.Tran) <= 0)
+                    if (saleorderdetail[i].CSProductCode != "")
                     {
-                        DB.DBConn.Tran.Rollback();
-                        DB.DBConn.DisposeSqlTransaction(DB.DBConn.Tran);
-                        DB.DBConn.DisposeSqlConnection(DB.DBConn.Cmd);
-                    };
+
+                        _cmd = "exec  dbo.TPreSaleOrder_Detail_Trans";
+                        _cmd += " @CSUserIns  ='" + saleorderdetail[i].CSUserIns + "'";
+                        _cmd += ",@CSSaleOrderNo  ='" + saleorderdetail[i].CSSaleOrderNo + "'";
+                        _cmd += ",@CSProductCode  ='" + saleorderdetail[i].CSProductCode + "'";
+                        _cmd += ",@CSUnitCode  ='" + saleorderdetail[i].CSUnitCode + "'";
+                        _cmd += ",@CNQty =" + saleorderdetail[i].CNQty;
+                        _cmd += ",@CNUnitPrice =" + saleorderdetail[i].CNUnitPrice;
+                        _cmd += ",@CNDiscountPer1 =" + saleorderdetail[i].CNDiscountPer1;
+                        _cmd += ",@CNDiscountPer2 =" + saleorderdetail[i].CNDiscountPer2;
+                        _cmd += ",@CNDiscountPer3 =" + saleorderdetail[i].CNDiscountPer3; ;
+                        _cmd += ",@CNDiscountAmt =" + saleorderdetail[i].CNDiscountAmt;
+                        _cmd += ",@CNAmount =" + saleorderdetail[i].CNAmount;
+                        _cmd += ",@Seq =" + +saleorderdetail[i].Seq;
+                        _cmd += ",@FTStateFree ='" + saleorderdetail[i].FTStateFree + "'";
+                        _cmd += ",@FTStateOther =" + 0;
+                        //   DB.DBConn.ExecuteOnly(_cmd);
+
+
+
+                        if (DB.DBConn.ExecuteTran(_cmd, DB.DBConn.Cmd, DB.DBConn.Tran) <= 0)
+                        {
+                            DB.DBConn.Tran.Rollback();
+                            DB.DBConn.DisposeSqlTransaction(DB.DBConn.Tran);
+                            DB.DBConn.DisposeSqlConnection(DB.DBConn.Cmd);
+                        };
+                    }
+
+
 
                 }
 

@@ -27,10 +27,7 @@ namespace SaleorderWebApi.Controllers
         // POST: api/Saleorderapp
         public void Post(saleorderappM so)
         {
-            try
-            {
-                 try
-                {
+            try { 
                     string _cmd;
                     _cmd = "exec  dbo.TPreSaleOrderTransApp";
                     _cmd += " @CSUserIns  ='" + so.CSUserIns + "'";
@@ -63,11 +60,7 @@ namespace SaleorderWebApi.Controllers
                     _cmd += ",@StateApp ='" + so.FTStateApp + "'";
                     DB.DBConn.ExecuteOnly(_cmd);
 
-                }
-                catch (Exception ex)
-                {
-
-                }
+               
                 
             }
             catch (Exception ex)

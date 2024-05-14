@@ -264,6 +264,8 @@
     <Compile Include="calendargoogle\CalendarQuickstart.cs" />
     <Compile Include="Controllers\AuthorizedController.cs" />
     <Compile Include="Controllers\CheckOnhandController.cs" />
+    <Compile Include="Controllers\CouponController.cs" />
+    <Compile Include="Controllers\CRMController.cs" />
     <Compile Include="Controllers\CustermerShiperController.cs" />
     <Compile Include="Controllers\CustGrpController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -294,8 +296,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\coupon.cs" />
     <Compile Include="Models\customer.cs" />
     <Compile Include="Models\customershiper.cs" />
+    <Compile Include="Models\MsgReturn.cs" />
     <Compile Include="Models\product.cs" />
     <Compile Include="Models\promotiondetail.cs" />
     <Compile Include="Models\promotions.cs" />

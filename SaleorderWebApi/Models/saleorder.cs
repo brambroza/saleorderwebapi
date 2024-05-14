@@ -143,4 +143,28 @@ namespace SaleorderWebApi.Models
     }
 
 
+    public class CheckIn
+    {
+        public int CNCustomerId { get; set; }
+        public string CDDateTrans { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string ImagePath { get; set; }
+        public string CSTime { get; set; }
+        public string CSUserLogin { get; set; }
+    }
+
+    public class SaleTrip
+    {
+        public int CNCustomerId { get; set; }
+        public int Seq { get; set; }
+        public string CDDateTrans { get; set; }
+        public string CSUserLogin { get; set; }
+        public string ImagePath { get; set; }
+
+        public string CSTime { get; set; }
+        public string StatusCheckIn { get; set; }
+
+    }
+
 }

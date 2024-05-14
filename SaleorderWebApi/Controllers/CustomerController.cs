@@ -12,12 +12,14 @@ namespace SaleorderWebApi.Controllers
     public class CustomerController : ApiController
     {
         // GET: api/Customer
+        
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET: api/Customer/5
+    
         public IHttpActionResult Get(int id ,string user)
         {
             DataTable dt = new System.Data.DataTable();
