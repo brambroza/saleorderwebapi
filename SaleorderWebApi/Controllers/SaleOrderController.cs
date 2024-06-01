@@ -79,7 +79,7 @@ namespace SaleorderWebApi.Controllers
                 DB.DBConn.ExecuteOnly(_cmd);
 
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }
@@ -123,7 +123,7 @@ namespace SaleorderWebApi.Controllers
                 DB.DBConn.ExecuteOnly(_cmd);
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
             }

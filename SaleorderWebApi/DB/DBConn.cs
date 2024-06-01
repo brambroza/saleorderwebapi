@@ -196,7 +196,7 @@ namespace SaleorderWebApi.DB
                 return true;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DBConn.Tran.Rollback();
                 DBConn.DisposeSqlTransaction(DBConn.Tran);
@@ -222,7 +222,7 @@ namespace SaleorderWebApi.DB
 
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return -1;
@@ -245,7 +245,7 @@ namespace SaleorderWebApi.DB
                 return Complete;
 
             }
-            catch(Exception ex)
+            catch(Exception )
             {
                 return Complete;
             }
@@ -279,7 +279,7 @@ namespace SaleorderWebApi.DB
                 DisposeSqlConnection(_Cnn);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DisposeSqlConnection(_Cmd);
                 DisposeSqlConnection(_Cnn);
@@ -321,7 +321,7 @@ namespace SaleorderWebApi.DB
 
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 DBConn.Tran.Rollback();
                 DBConn.DisposeSqlTransaction(DBConn.Tran);
@@ -359,7 +359,7 @@ namespace SaleorderWebApi.DB
                 return true;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DBConn.Tran.Rollback();
                 DBConn.DisposeSqlTransaction(DBConn.Tran);
@@ -382,7 +382,7 @@ namespace SaleorderWebApi.DB
                 return DBConn.Cmd.ExecuteScalar();
 
             }
-            catch (SqlException ex)
+            catch (SqlException )
             {
                 return null;
             }
@@ -405,7 +405,7 @@ namespace SaleorderWebApi.DB
                 return _Cmd.ExecuteScalar();
 
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 return null;
             }
@@ -448,7 +448,7 @@ namespace SaleorderWebApi.DB
                     DisposeSqlConnection(_Cmd);
                     DisposeSqlConnection(_Cnn);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     DisposeSqlConnection(_Cmd);
                     DisposeSqlConnection(_Cnn);
@@ -499,7 +499,7 @@ namespace SaleorderWebApi.DB
                 DisposeSqlConnection(_Cmd);
                 DisposeSqlConnection(_Cnn);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DisposeSqlConnection(_Cmd);
                 DisposeSqlConnection(_Cnn);
@@ -533,7 +533,7 @@ namespace SaleorderWebApi.DB
                 DisposeSqlConnection(_Cmd);
                 DisposeSqlConnection(_Cnn);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DisposeSqlConnection(_Cmd);
                 DisposeSqlConnection(_Cnn);
@@ -567,7 +567,7 @@ namespace SaleorderWebApi.DB
                 _cmd.Dispose();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 _cmd.Dispose();
             }
@@ -598,7 +598,7 @@ namespace SaleorderWebApi.DB
 
                 dt.Dispose();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
@@ -628,7 +628,7 @@ namespace SaleorderWebApi.DB
 
                 dt.Dispose();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
@@ -667,7 +667,7 @@ namespace SaleorderWebApi.DB
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
@@ -697,7 +697,7 @@ namespace SaleorderWebApi.DB
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 
@@ -736,7 +736,7 @@ namespace SaleorderWebApi.DB
                 };
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 

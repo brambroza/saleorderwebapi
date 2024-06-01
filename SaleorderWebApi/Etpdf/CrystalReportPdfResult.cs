@@ -14,7 +14,7 @@ namespace SaleorderWebApi.Etpdf
     public class CrystalReportPdfResult 
     {
 
-        private readonly byte[] _contentBytes;
+      //  private readonly byte[] _contentBytes;
 
         public CrystalReportPdfResult(string reportPath )
         {

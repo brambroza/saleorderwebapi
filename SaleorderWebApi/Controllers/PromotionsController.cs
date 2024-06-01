@@ -51,17 +51,13 @@ namespace SaleorderWebApi.Controllers
                 DB.DBConn.ExecuteOnly(_cmd);
 
             }
-            catch(Exception ex)
+            catch(Exception )
             {
 
             }
         }
 
-        // PUT: api/Promotions/5
-        public void Put(int id, [FromBody]string value)
-        {
-
-        }
+     
 
         // DELETE: api/Promotions/5
         public void Delete(int PromotionId)

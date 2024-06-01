@@ -63,7 +63,7 @@ namespace SaleorderWebApi.Controllers
                
                 
             }
-            catch (Exception ex)
+            catch (Exception  )
             {
 
             }

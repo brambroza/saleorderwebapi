@@ -142,6 +142,12 @@ namespace SaleorderWebApi.Models
 
     }
 
+    public class saleappMobile
+    {
+        public string UserLogin { get; set; }
+        public string CSSaleOrderNo { get; set; }
+        public string StateApp { get; set; }
+    }
 
     public class CheckIn
     {
@@ -154,6 +160,22 @@ namespace SaleorderWebApi.Models
         public string CSUserLogin { get; set; }
     }
 
+
+    public class CheckInWarehouse
+    {
+        public int CNCustomerId { get; set; }
+        public int CNDeliveryId { get; set; }
+        public string CDDateTrans { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string ImagePath { get; set; }
+        public string CSTime { get; set; }
+        public string CSUserLogin { get; set; }
+    }
+
+
+
+
     public class SaleTrip
     {
         public int CNCustomerId { get; set; }
@@ -164,6 +186,7 @@ namespace SaleorderWebApi.Models
 
         public string CSTime { get; set; }
         public string StatusCheckIn { get; set; }
+        public string Description { get; set; }
 
     }
 

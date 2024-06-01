@@ -13,18 +13,7 @@ namespace SaleorderWebApi.Controllers
 
     public class PromotionCustController : ApiController
     {
-        // GET: api/PromotionCust
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/PromotionCust/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
+   
         // POST: api/PromotionCust
         public void Post(promotionscust promotionscust)
         {
@@ -39,16 +28,13 @@ namespace SaleorderWebApi.Controllers
                 DB.DBConn.ExecuteOnly(_cmd);
 
             }
-            catch(Exception ex)
+            catch(Exception )
             {
 
             }
         }
 
-        // PUT: api/PromotionCust/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+       
 
         // DELETE: api/PromotionCust/5
         public void Delete(int PromotionId , int Seq ,  string CustomerCode)
@@ -63,7 +49,7 @@ namespace SaleorderWebApi.Controllers
                 DB.DBConn.ExecuteOnly(_cmd);
 
             }
-            catch (Exception ex)
+            catch (Exception  )
             {
 
             }

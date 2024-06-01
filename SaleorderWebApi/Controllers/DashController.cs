@@ -10,11 +10,7 @@ namespace SaleorderWebApi.Controllers
 {
     public class DashController : ApiController
     {
-        // GET: api/Dash
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+     
 
         // GET: api/Dash/5
         public IHttpActionResult Get(int CmpId , string username , int dtype)
@@ -44,20 +40,6 @@ namespace SaleorderWebApi.Controllers
             return Ok(dt);
         }
 
-
-        // POST: api/Dash
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Dash/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Dash/5
-        public void Delete(int id)
-        {
-        }
+         
     }
 }

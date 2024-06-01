@@ -37,7 +37,7 @@ namespace SaleorderWebApi.Controllers
           
            
           
-            string EmailTosend = "" ;// = WebUtility.UrlDecode(user.Email);
+          //  string EmailTosend = "" ;// = WebUtility.UrlDecode(user.Email);
            // List<Users> model = new List<Users>();
            // var data = cX.tbl_Registration;
             var rd = new   ReportDocument();
@@ -112,7 +112,7 @@ namespace SaleorderWebApi.Controllers
            
             try {
                 crystalReport.Load(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/Reports/marketing"), "invoice.rpt"));
-            } catch(CrystalDecisions.Shared.CrystalReportsException ex)
+            } catch(CrystalDecisions.Shared.CrystalReportsException)
             {
 
             }

@@ -102,7 +102,7 @@ namespace SaleorderWebApi.Controllers
                 DB.DBConn.DisposeSqlConnection(DB.DBConn.Cmd);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 DB.DBConn.Tran.Rollback();
                 DB.DBConn.DisposeSqlTransaction(DB.DBConn.Tran);

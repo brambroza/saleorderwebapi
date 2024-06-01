@@ -188,7 +188,7 @@ namespace SaleorderWebApi.Controllers
                 }
                   
 
-            catch (Exception ext)
+            catch (Exception  )
                 {
                     try
                     {
