@@ -22,12 +22,12 @@ namespace SaleorderWebApi.Controllers
 
         [HttpGet]
         [Route("reportSaleDaily")]
-        public HttpResponseMessage ExportToExcelSaleDaily(String SDate , String EDate , String Username)
+        public HttpResponseMessage ExportToExcelSaleDaily(string SDate , string EDate , string Username , string SaleCode)
         {
             // Sample DataTable
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_SumSale_Daily_ForMobile_Excel]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+            _cmd = "exec dbo.[SP_GET_SumSale_Daily_ForMobile_Excel]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "',@salecode='" + SaleCode + "'";
            // _cmd = "SELECT TOP (200) CNPositionId, CSPositionCode, CSPositionName 'ชื่อ', CSStateActive  , 98 as 'รวม' FROM     MPosition";
             dt = DB.DBConn.GetDataTable(_cmd);
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -69,7 +69,7 @@ namespace SaleorderWebApi.Controllers
 
                 // Sample data
                 DataTable dt2 = new DataTable();
-                _cmd = " exec dbo.[SP_GET_SumSale_Daily_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+                _cmd = " exec dbo.[SP_GET_SumSale_Daily_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "' , @salecode='" + SaleCode + "'";
                 dt2 = DB.DBConn.GetDataTable(_cmd);
 
                 worksheet1.Cells.Style.Font.Name = "Tahoma"; // Set font name
@@ -218,12 +218,12 @@ namespace SaleorderWebApi.Controllers
 
         [HttpGet]
         [Route("reportSaleTrip")]
-        public HttpResponseMessage ExportToExcelSaleTrip(String SDate, String EDate, String Username)
+        public HttpResponseMessage ExportToExcelSaleTrip(string SDate, string EDate, string Username , string SaleCode)
         {
             // Sample DataTable
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_SumSale_Trip_ForMobile_Excel]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+            _cmd = "exec dbo.[SP_GET_SumSale_Trip_ForMobile_Excel]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "' , @salecode='" + SaleCode + "'";
             // _cmd = "SELECT TOP (200) CNPositionId, CSPositionCode, CSPositionName 'ชื่อ', CSStateActive  , 98 as 'รวม' FROM     MPosition";
             dt = DB.DBConn.GetDataTable(_cmd);
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -265,7 +265,7 @@ namespace SaleorderWebApi.Controllers
 
                 // Sample data
                 DataTable dt2 = new DataTable();
-                _cmd = " exec dbo.[SP_GET_SumSale_SumTrip_ForMobile_Excel]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+                _cmd = " exec dbo.[SP_GET_SumSale_SumTrip_ForMobile_Excel]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "' ,@salecode='" + SaleCode + "'";
                 dt2 = DB.DBConn.GetDataTable(_cmd);
 
                 worksheet1.Cells.Style.Font.Name = "Tahoma"; // Set font name
@@ -415,12 +415,12 @@ namespace SaleorderWebApi.Controllers
          
         [HttpGet]
         [Route("reportSupDaily")]
-        public HttpResponseMessage ExportToExcelSupDaily(String SDate, String EDate, String Username)
+        public HttpResponseMessage ExportToExcelSupDaily(string SDate, string EDate, string Username , string SaleCode)
         {
             // Sample DataTable
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_Report_Detail_Sup_Daily_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+            _cmd = "exec dbo.[SP_GET_Report_Detail_Sup_Daily_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "' , @salecode='" + SaleCode + "'";
             // _cmd = "SELECT TOP (200) CNPositionId, CSPositionCode, CSPositionName 'ชื่อ', CSStateActive  , 98 as 'รวม' FROM     MPosition";
             dt = DB.DBConn.GetDataTable(_cmd);
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -575,7 +575,9 @@ namespace SaleorderWebApi.Controllers
 
                 // Sample data
                 DataTable dt2 = new DataTable();
-                _cmd = " exec dbo.[SP_GET_Report_Sum_Sup_Daily_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+               // _cmd = " exec dbo.[SP_GET_Report_Sum_Sup_Daily_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+
+                _cmd = " exec dbo.[SP_GET_Report_Sum_Sup_Daily_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "' , @salecode='" + SaleCode + "'";
                 dt2 = DB.DBConn.GetDataTable(_cmd);
 
                 worksheet1.Cells.Style.Font.Name = "Tahoma"; // Set font name
@@ -777,13 +779,15 @@ namespace SaleorderWebApi.Controllers
 
         [HttpGet]
         [Route("reportSupTrip")]
-        public HttpResponseMessage ExportToExcelSupTrip(String SDate, String EDate, String Username)
+        public HttpResponseMessage ExportToExcelSupTrip(string SDate, string EDate, string Username , string SaleCode)
         {
 
             // Sample DataTable
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_Report_Detail_Sup_Trip_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+           // _cmd = "exec dbo.[SP_GET_Report_Detail_Sup_Trip_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+
+            _cmd = "exec dbo.[SP_GET_Report_Detail_Sup_Trip_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "' , @salecode='" + SaleCode + "'";
             // _cmd = "SELECT TOP (200) CNPositionId, CSPositionCode, CSPositionName 'ชื่อ', CSStateActive  , 98 as 'รวม' FROM     MPosition";
             dt = DB.DBConn.GetDataTable(_cmd);
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -938,7 +942,9 @@ namespace SaleorderWebApi.Controllers
 
                 // Sample data
                 DataTable dt2 = new DataTable();
-                _cmd = " exec dbo.[SP_GET_Report_Sum_Sup_Trip_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+               // _cmd = " exec dbo.[SP_GET_Report_Sum_Sup_Trip_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "'";
+
+                _cmd = " exec dbo.[SP_GET_Report_Sum_Sup_Trip_ForMobile]   @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + Username + "' , @salecode='" + SaleCode + "'";
                 dt2 = DB.DBConn.GetDataTable(_cmd);
 
                 worksheet1.Cells.Style.Font.Name = "Tahoma"; // Set font name

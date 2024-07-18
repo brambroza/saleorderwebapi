@@ -158,7 +158,33 @@ namespace SaleorderWebApi.Models
         public string ImagePath { get; set; }
         public string CSTime { get; set; }
         public string CSUserLogin { get; set; }
+        public string Remark { get; set; }
     }
+
+    public class NewCustomer
+    {
+        public int CNCustomerId { get; set; }
+        public string CDDateTrans { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string ImagePath { get; set; }
+        public string CSTime { get; set; }
+        public string CSUserLogin { get; set; }
+        public string Remark { get; set; }
+        public string CSContactName { get; set; }
+        public string CSContactPhone { get; set; }
+        public string CSContactName2 { get; set; }
+        public string CSContactPhone2 { get; set; }
+        public string CSContactName3 { get; set; }
+        public string CSContactPhone3 { get; set; }
+        public string CustName { get; set; }
+        public string CustAddr { get; set; }
+        public int SaleAreaId { get; set; }
+
+
+
+    }
+
 
 
     public class CheckInWarehouse
@@ -189,5 +215,37 @@ namespace SaleorderWebApi.Models
         public string Description { get; set; }
 
     }
+
+
+    public class appsaletrip
+    {
+        public int CmpId { get; set; }
+        public string UserLogin { get; set; }
+        public string DateTrans { get; set; }
+        public string UserApp { get; set; }
+        public string StateApp { get; set; }
+
+    }
+
+    public class bulkappsaletrip
+    {
+        public int CmpId { get; set; }
+        public string UserLogin { get; set; }
+        public string SDate { get; set; }
+        public string EDate { get; set; }
+        public string UserApp { get; set; }
+        public string StateApp { get; set; }
+
+    }
+
+
+    public class sendappsaletrip
+    {
+        public int CmpId { get; set; }
+        public string UserLogin { get; set; }
+        public string DateTrans { get; set; } 
+    }
+
+
 
 }

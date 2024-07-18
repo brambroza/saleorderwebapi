@@ -74,35 +74,35 @@ namespace SaleorderWebApi.Controllers
     ///
     [HttpGet]
         [Route("getSaleDaily")]
-        public IHttpActionResult getSaleDaily(String SDate , String EDate ,  string user)
+        public IHttpActionResult getSaleDaily(String SDate , String EDate ,  string user , string salecode)
         {
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_SumSale_Daily_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "'";
+            _cmd = "exec dbo.[SP_GET_SumSale_Daily_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "' , @salecode='" + salecode + "'";
             dt = DB.DBConn.GetDataTable(_cmd);
             return Ok(dt);
         }
 
         [HttpGet]
         [Route("getSaleTrip")]
-        public IHttpActionResult getSaleTrip(String SDate, String EDate, string user)
+        public IHttpActionResult getSaleTrip(String SDate, String EDate, string user, string salecode)
         {
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_SumSale_Trip_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "'";
+            _cmd = "exec dbo.[SP_GET_SumSale_Trip_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "' , @salecode='" + salecode + "'";
             dt = DB.DBConn.GetDataTable(_cmd);
             return Ok(dt);
         }
 
         [HttpGet]
         [Route("getSaleDailySup")]
-        public IHttpActionResult getSaleDailySup(String SDate, String EDate, string user)
+        public IHttpActionResult getSaleDailySup(String SDate, String EDate, string user, string salecode)
         {
 
            
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_SumSale_Daily_sup_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "'";
+            _cmd = "exec dbo.[SP_GET_SumSale_Daily_sup_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "' , @salecode='" + salecode + "'";
             dt = DB.DBConn.GetDataTable(_cmd);
             return Ok(dt);
         }
@@ -110,13 +110,13 @@ namespace SaleorderWebApi.Controllers
 
         [HttpGet]
         [Route("getSaleTripSup")]
-        public IHttpActionResult getSaleTripSup(String SDate, String EDate, string user)
+        public IHttpActionResult getSaleTripSup(String SDate, String EDate, string user, string salecode)
         {
 
 
             DataTable dt = new System.Data.DataTable();
             string _cmd;
-            _cmd = "exec dbo.[SP_GET_SumSale_Daily_Trip_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "'";
+            _cmd = "exec dbo.[SP_GET_SumSale_Daily_Trip_ForMobile]  @StartDate='" + SDate + "', @EndDate ='" + EDate + "' , @userlogin='" + user + "' , @salecode='" + salecode + "'";
             dt = DB.DBConn.GetDataTable(_cmd);
             return Ok(dt);
         }
